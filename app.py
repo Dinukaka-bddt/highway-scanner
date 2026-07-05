@@ -16,6 +16,11 @@ except ImportError:
 if st.secrets.get("gcp_service_account"):
     # Streamlit Cloud (Production) සඳහා
     credentials_info = dict(st.secrets["gcp_service_account"])
+    
+    # 💡 Streamlit Secrets වල ඇති \n කියවීමේ ගැටලුව කේතය ඇතුළෙන්ම නිවැරදි කිරීම
+    if "private_key" in credentials_info:
+        credentials_info["private_key"] = credentials_info["private_key"].replace("\\n", "\n")
+        
     credentials = service_account.Credentials.from_service_account_info(credentials_info)
 else:
     # Local PC (Development) සඳහා
