@@ -1,7 +1,6 @@
 streamlit
-easyocr
+google-cloud-vision
+google-auth
+fpdf
 pandas
 numpy
-opencv-python-headless
-pillow
-fpdf
